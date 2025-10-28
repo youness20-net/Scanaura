@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AR Business Card Scanner</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs>
+        <!-- Define your AR marker pattern. This would be a unique image file representing your business card -->
+        <a-marker type="pattern" url="/pattern-card.patt" position="0 0 0" rotation="0 0 0">
+            <!-- Your 3D model goes here. Replace 'your-card-model.gltf' with the actual path to your 3D model -->
+            <a-entity gltf-model="url(/model.glb)" scale="0.1 0.1 0.1" rotation="0 0 0" position="0 0 0"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
