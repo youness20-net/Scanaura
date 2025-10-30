@@ -1,43 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seamless AR Code Scan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <title>Scanaura</title>
 </head>
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded  arjs>
 
-<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-
-<body style="margin: 0; overflow: hidden;">
-
-    <a-scene 
-        embedded 
-        arjs="
-            sourceType: webcam; 
-            cameraParametersUrl: https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/camera-parameters/camera_para.dat;
-            
-            // KEY CHANGE: Switch to look for simple barcodes/matrix codes
-            detectionMode: mono_and_matrix; 
-            matrixCodeType: 3x3; // Optimized for simpler barcodes
-        "
-        renderer="logarithmicDepthBuffer: true; antialias: true;"
-        vr-mode-ui="enabled: false;"
-    >
-      
-        <a-marker type='barcode' value='5'>
-            
-            <a-gltf-model
-                src="/model.glb"
-                scale="1 1 1"
-                position="0 0.5 0"
-                rotation="0 0 0"
-            ></a-gltf-model>
-
+        <a-marker type="pattern" url="pattern-business cards411pixel-01.patt" position="0 0 0" rotation="0 0 0">
+            <a-entity gltf-model="url(/model.glb)" scale="0.5 0.5 0.5" rotation="0 0 0" visible="true" position="0 0 0"></a-entity>
         </a-marker>
-
         <a-entity camera></a-entity>
     </a-scene>
 </body>
-
 </html>
